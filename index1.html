@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan | manipulasi node</title>
+    <style>
+        :root {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 8px;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            background-color: #dbdcda;
+        }
+
+        .container {
+            width: 60%;
+            margin: 100px auto;
+            background-color: #021c1c;
+            display: flex;
+        }
+
+        #about {
+            width: 60%;
+            padding: 20px;
+            font-weight: bold;
+            display: flex;
+            flex-flow: column wrap;
+            transition: all 1s ease-in-out;
+        }
+
+        .h3About {
+            color: #9aa78f;
+            font-size: 3rem;
+            text-align: right;
+        }
+
+
+        p {
+            text-align: right;
+        }
+
+        #myskill {
+            width: 40%;
+            background-color: #58646b;
+            padding: 20px;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            transition: all 1s ease-in-out;
+        }
+
+        .h4mySkill {
+            padding: 0 0 0 30px;
+            color: #9aa78f;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        li {
+            list-style: none;
+            text-align: center;
+        }
+
+        p,
+        li {
+            color: #6c9665;
+            font-size: 2.5rem;
+        }
+
+
+        .container:hover #about {
+            box-shadow: inset 0px 500px 0px #58646b;
+        }
+
+        .container:hover #myskill {
+            box-shadow: inset 0px -500px 0px #021c1c;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+
+    </div>
+
+
+    <script>
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.boxSizing = 'border-box';
+
+        const container = document.getElementById('container');
+        container.classList.add('container');
+
+        // membuat elwment
+        const paraf =
+            [
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sed velit harum mollitia quisquam ratione soluta repellendus odio voluptas commodi tempore dolores, facilis nam illo? Inventore commodi repellendus omnis mollitia?',
+
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+            ]
+
+        const skill =
+            [
+                'html',
+                'css',
+                'javascript'
+            ];
+
+        const about = document.createElement('div');
+        const mySkil = document.createElement('div');
+        const ul = document.createElement('ul');
+        const headingSatu = document.createElement('h3');
+        const headingDua = document.createElement('h4')
+
+        const teksHeadingSatu = document.createTextNode('Tentang Saya');
+        const teksHeadingDua = document.createTextNode('Skill');
+
+        about.appendChild(headingSatu);
+        headingSatu.appendChild(teksHeadingSatu);
+        headingSatu.classList.add('h3About');
+
+        mySkil.appendChild(headingDua);
+        headingDua.appendChild(teksHeadingDua);
+        headingDua.classList.add('h4mySkill');
+
+
+        const p = document.getElementsByTagName('p');
+
+        for (let i = 0; i < paraf.length; i++) {
+            let p = document.createElement('p');
+            let p1 = document.createTextNode(paraf[i]);
+            p.append(p1);
+            about.append(p);
+
+            p.classList.add('paraf' + i);
+        }
+
+        const li = document.getElementsByTagName('li');
+        for (let i = 0; i < skill.length; i++) {
+            let li = document.createElement('li');
+            let tList = document.createTextNode(skill[i])
+            ul.append(li);
+            li.append(tList);
+            li.classList.add('list' + i);
+        }
+
+
+
+
+
+        container.append(about);
+        container.append(mySkil);
+        mySkil.append(ul);
+
+
+        about.setAttribute('id', 'about');
+        mySkil.setAttribute('id', 'myskill');
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
